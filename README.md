@@ -19,7 +19,7 @@ In this lab, I learned how to use SQL with DuckDB to analyze data and compare SQ
 ## Key Findings
 
 - A LEFT JOIN increased the dataset from 600 customer rows to 3,612 rows because some customers had multiple orders.
-- The Welch t-test results changed after the join because repeated rows affected the estimated difference and standard error. [Add t-statistics and p-values from the notebook.]
+- Before the join, the Welch t-test gave t = 0.07 (p = 0.9413). After the join, it gave t = 0.71 (p = 0.4749). The standard error decreased from 9.35 to 3.75, and the difference increased from 0.69 to 2.68. This shows how repeated rows can change statistical results.
 - Window functions calculated regional averages and rankings while keeping all 600 customer rows.
 - SQL kept only 3 of 5 survey rows when filtering for income not equal to 50,000. It excluded the two missing incomes because comparisons with NULL return unknown. Pandas kept all 5 rows.
 - DuckDB queried about 3 million NYC taxi trips over HTTP and returned six grouped rows without downloading the entire dataset.
